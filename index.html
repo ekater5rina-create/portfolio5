@@ -1,0 +1,770 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Hair Premium | Кератин & Ботокс | Косметика премиум</title>
+  <style>
+    /* ===== СБРОС И ПЕРЕМЕННЫЕ (ПРЕМИАЛЬНАЯ ТЁМНАЯ ТЕМА) ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #0c0b0e;
+      color: #f5f0f8;
+      line-height: 1.5;
+    }
+
+    /* яркая розовая акцентная палитра + градиенты */
+    :root {
+      --pink-1: #ff2d95;
+      --pink-2: #ff66c4;
+      --pink-3: #ff1493;
+      --gradient-pink: linear-gradient(135deg, #ff2d95, #ff66c4, #ff9fcf);
+      --gradient-glow: linear-gradient(145deg, rgba(255,45,149,0.15), rgba(255,20,147,0.05));
+      --glass-bg: rgba(20, 15, 25, 0.6);
+      --glass-border: rgba(255, 105, 180, 0.25);
+      --card-bg: #161118;
+      --text-light: #fcf3ff;
+      --text-soft: #cfc1da;
+      --shadow-heavy: 0 25px 50px -8px rgba(255, 20, 147, 0.35);
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      margin-bottom: 100px;
+    }
+
+    /* ===== ГЛАССМОРФИЗМ (ОБЩИЙ ЭЛЕМЕНТ) ===== */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 48px;
+    }
+
+    /* ===== ТИПОГРАФИКА ===== */
+    .section-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #ffffff, #ffc0e6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 1.3rem;
+      color: var(--text-soft);
+      max-width: 700px;
+      margin-bottom: 50px;
+    }
+
+    /* ===== HERO (ГРАДИЕНТНЫЙ ЗАГОЛОВОК С ПРОЗРАЧНОСТЬЮ) ===== */
+    .hero {
+      padding: 80px 0 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .gradient-headline {
+      font-size: clamp(2.8rem, 12vw, 6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(115deg, #ffb3d9, #ff2d95, #ff66c4, #ff1493, #ffb3d9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 24px;
+      text-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-utp {
+      font-size: 1.4rem;
+      color: #dbcde2;
+      max-width: 750px;
+      margin-bottom: 40px;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(4px);
+      padding: 8px 24px;
+      border-radius: 80px;
+      border: 1px solid rgba(255,105,180,0.3);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background: var(--gradient-pink);
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 16px 48px;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 20px 35px -5px #ff1a8c;
+      transition: 0.25s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.04);
+      box-shadow: 0 30px 45px -5px #ff3ca6;
+    }
+
+    .btn-outline-pink {
+      background: transparent;
+      border: 2px solid #ff66c4;
+      color: white;
+      padding: 16px 48px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      backdrop-filter: blur(6px);
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-outline-pink:hover {
+      background: #ff2d95;
+      border-color: #ff2d95;
+      box-shadow: 0 0 25px #ff66c4;
+    }
+
+    /* ===== БЛОК УСЛУГ (КАРТОЧКИ С АНИМАЦИЕЙ) ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 40px 25px 35px;
+      border-radius: 42px;
+      border: 1px solid #332a36;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.8);
+      text-align: center;
+      backdrop-filter: blur(5px);
+      background: linear-gradient(145deg, #1f1924, #120e15);
+    }
+
+    .service-card:hover {
+      transform: translateY(-18px);
+      border-color: #ff66c4;
+      box-shadow: var(--shadow-heavy);
+      background: linear-gradient(145deg, #291e2b, #1b1320);
+    }
+
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      filter: drop-shadow(0 8px 12px #ff149355);
+    }
+
+    .service-card h3 {
+      font-size: 2rem;
+      background: linear-gradient(145deg, #fff, #ffb6e3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: #b4a2c2;
+      font-size: 1.05rem;
+    }
+
+    /* ===== БЛОК СОБСТВЕННОЙ КОСМЕТИКИ (ГРАДИЕНТ + ГЛАСС) ===== */
+    .cosmetic-block {
+      background: radial-gradient(ellipse at 30% 30%, #ff3f9e20, #0d0015 70%), linear-gradient(145deg, #190f1c, #23162b);
+      border-radius: 80px;
+      padding: 60px 50px;
+      border: 1px solid #ff66c470;
+      box-shadow: 0 30px 70px -20px #ff149360;
+      backdrop-filter: blur(5px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .cosmetic-info {
+      flex: 2 1 300px;
+    }
+
+    .cosmetic-info h2 {
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      background: linear-gradient(130deg, #ffb3d9, #ff80c0, #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .cosmetic-desc {
+      font-size: 1.2rem;
+      color: #e6d3f0;
+      margin-bottom: 25px;
+      max-width: 600px;
+    }
+
+    .pro-badge {
+      display: inline-block;
+      background: #ff2d9540;
+      border: 1.5px solid #ff66c4;
+      color: white;
+      padding: 8px 30px;
+      border-radius: 60px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(10px);
+    }
+
+    .cosmetic-preview {
+      flex: 1 1 200px;
+      background: rgba(255, 204, 229, 0.1);
+      border-radius: 50px;
+      padding: 30px 25px;
+      text-align: center;
+      border: 2px dashed #ff66c4;
+      font-size: 1.6rem;
+      font-weight: 600;
+      backdrop-filter: blur(12px);
+      color: #ffb6d9;
+    }
+
+    /* ===== КЕЙСЫ (ВЫДЕЛЕННЫЕ КАРТОЧКИ) ===== */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .case-card {
+      background: #1b141f;
+      border-radius: 42px;
+      padding: 38px 28px;
+      border-left: 8px solid #ff2d95;
+      transition: 0.25s ease;
+      box-shadow: 0 20px 40px -15px black;
+      background: linear-gradient(145deg, #1f1625, #17111d);
+    }
+
+    .case-card:hover {
+      border-left-width: 12px;
+      border-left-color: #ff9fcf;
+      transform: translateY(-6px);
+    }
+
+    .case-problem {
+      color: #ff99cc;
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .case-arrow {
+      font-size: 1.8rem;
+      margin: 8px 0;
+      opacity: 0.8;
+    }
+
+    .case-result {
+      background: #ff2d9520;
+      border-radius: 40px;
+      padding: 14px 18px;
+      margin-top: 18px;
+      font-weight: 500;
+      border: 1px solid #ff66c4;
+    }
+
+    /* ===== ПРЕИМУЩЕСТВА (СЕТКА ТЕГОВ PILL) ===== */
+    .tags-wall {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      margin: 40px 0 20px;
+    }
+
+    .premium-tag {
+      background: rgba(255, 45, 149, 0.12);
+      border: 2px solid #ff66c4;
+      color: white;
+      padding: 16px 38px;
+      border-radius: 80px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      transition: 0.2s;
+      letter-spacing: 0.02em;
+      box-shadow: 0 6px 18px #ff149320;
+    }
+
+    .premium-tag:hover {
+      background: #ff2d95;
+      border-color: white;
+      transform: scale(1.03);
+      box-shadow: 0 0 35px #ff80c0;
+    }
+
+    /* ===== ФИНАЛЬНЫЙ CTA (АКЦЕНТНЫЙ ВИЗУАЛЬНЫЙ БЛОК) ===== */
+    .final-cta {
+      background: linear-gradient(125deg, #1f1025, #2d1735);
+      border-radius: 100px 100px 100px 20px;
+      padding: 60px 50px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      border: 1px solid #ff1493;
+      box-shadow: 0 40px 80px -10px #ff1a8c;
+      margin: 100px 0 50px;
+    }
+
+    .cta-text h3 {
+      font-size: 2.8rem;
+      background: linear-gradient(145deg, #ffffff, #ffccf0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .cta-btn {
+      background: var(--gradient-pink);
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 22px 68px;
+      border-radius: 80px;
+      font-size: 1.6rem;
+      box-shadow: 0 0 40px #ff2d95;
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 70px #ff9acb;
+    }
+
+    /* ===== ДОПОЛНИТЕЛЬНЫЕ УЛУЧШЕНИЯ ===== */
+    /* сертификаты (сетка) */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .cert-item {
+      background: #1e1623;
+      border-radius: 30px;
+      padding: 25px 15px;
+      text-align: center;
+      border: 1px solid #ff66c430;
+      transition: 0.3s;
+      box-shadow: 0 10px 20px -10px black;
+    }
+    .cert-item:hover {
+      border-color: #ff66c4;
+      transform: scale(1.02);
+    }
+    .cert-icon {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 15px #ff99cc);
+    }
+
+    /* карусель отзывов */
+    .reviews-carousel {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding: 15px 5px 30px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .review-card {
+      flex: 0 0 280px;
+      background: #1b121f;
+      border-radius: 48px;
+      padding: 30px 25px;
+      border: 2px solid #ff66c4;
+      scroll-snap-align: start;
+    }
+    .review-header {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .review-name {
+      color: white;
+      font-weight: bold;
+    }
+    .review-service {
+      color: #c490b5;
+      font-size: 0.9rem;
+    }
+    .review-stars {
+      margin-left: auto;
+      color: gold;
+    }
+    .review-text {
+      color: #d3b1da;
+    }
+
+    /* плавающий sticky bar */
+    .sticky-cta {
+      position: sticky;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      pointer-events: none;
+      padding: 0 16px;
+    }
+    .sticky-bar {
+      background: rgba(20, 10, 18, 0.8);
+      backdrop-filter: blur(16px);
+      border: 2px solid #ff66c4;
+      border-radius: 80px;
+      padding: 12px 25px;
+      box-shadow: 0 20px 50px #ff149380;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      pointer-events: auto;
+    }
+
+    /* FAQ details стили */
+    .faq-block {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #1b1321;
+      border-radius: 70px;
+      padding: 40px;
+    }
+    details {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ff66c430;
+      padding-bottom: 20px;
+    }
+    summary {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffc0e6;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-answer {
+      margin-top: 20px;
+      color: #dbc6e5;
+      font-size: 1.1rem;
+    }
+
+    /* адаптив */
+    @media (max-width: 800px) {
+      .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .cosmetic-block {
+        border-radius: 40px;
+        padding: 40px 25px;
+      }
+      .final-cta {
+        border-radius: 50px;
+        padding: 40px 25px;
+        flex-direction: column;
+        text-align: center;
+      }
+      .cta-btn {
+        padding: 16px 40px;
+        font-size: 1.4rem;
+        width: 100%;
+      }
+    }
+    @media (max-width: 500px) {
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #836e94;
+      border-top: 1px solid #ff149330;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero-блок с градиентным заголовком -->
+    <section class="hero">
+      <h1 class="gradient-headline">
+        Кератин &<br>Ботокс премиум
+      </h1>
+      <p class="hero-utp">✨ Идеальная гладкость без формальдегида. Сертифицированные составы, собственная линия ухода.</p>
+      <div class="btn-group">
+        <button class="btn-primary" onclick="alert('Запись через Telegram / сайт')">Записаться</button>
+        <a href="https://example.com" class="btn-outline-pink" target="_blank" rel="noopener">Перейти на сайт →</a>
+      </div>
+      <!-- маленький гласс-элемент (статус) -->
+      <div class="glass-card" style="padding: 10px 28px; display: inline-block; margin-top: 20px;">
+        ⚡️ премиальная косметика / сертификаты / без запаха
+      </div>
+    </section>
+
+    <!-- Блок услуг: карточки с анимацией при наведении + цены -->
+    <section>
+      <h2 class="section-title">Услуги преображения</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">✨</span>
+          <h3>Кератиновое выпрямление</h3>
+          <p>Восстанавливает структуру, зеркальный блеск до 6 месяцев. Без формальдегида.</p>
+          <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
+            <span style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3;">от 6 900 ₽</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💆‍♀️</span>
+          <h3>Ботокс для волос</h3>
+          <p>Глубокое питание, плотность и эластичность. Эффект ламинирования.</p>
+          <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
+            <span style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3;">от 5 500 ₽</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🌀</span>
+          <h3>Нанопластика</h3>
+          <p>Щадящее выпрямление, филлеры для волос. Для тонких и ослабленных.</p>
+          <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
+            <span style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3;">от 7 500 ₽</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🌸</span>
+          <h3>Восстановление после окрашивания</h3>
+          <p>Спасение поврежденных прядей. Линия PREMIUM REPAIR.</p>
+          <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
+            <span style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3;">от 4 900 ₽</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- НОВЫЙ БЛОК: СЕРТИФИКАТЫ -->
+    <section>
+      <h2 class="section-title">Сертификаты и дипломы</h2>
+      <p class="section-sub">Подтвержденное качество и безопасность процедур</p>
+      <div class="certs-grid">
+        <div class="cert-item">
+          <div class="cert-icon">📜</div>
+          <h4 style="color: #ffc0e6; margin-bottom: 5px;">Диплом нутрициолога</h4>
+          <p style="color: #a98cb3; font-size: 0.9rem;">МИНЗДРАВ РФ</p>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🏅</div>
+          <h4 style="color: #ffc0e6; margin-bottom: 5px;">Сертификат</h4>
+          <p style="color: #a98cb3; font-size: 0.9rem;">"Кератин PRO"</p>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🎓</div>
+          <h4 style="color: #ffc0e6; margin-bottom: 5px;">Международный</h4>
+          <p style="color: #a98cb3; font-size: 0.9rem;">L'Oréal Professionnel</p>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">📋</div>
+          <h4 style="color: #ffc0e6; margin-bottom: 5px;">Патент на линию</h4>
+          <p style="color: #a98cb3; font-size: 0.9rem;">Hair Premium</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок "Собственная линия косметики" (выделенный блок с мягким градиентом) -->
+    <section>
+      <div class="cosmetic-block">
+        <div class="cosmetic-info">
+          <h2>HAIR PREMIUM <br>собственная линия</h2>
+          <p class="cosmetic-desc">Эксклюзивная серия для кератина, ботокса и домашнего ухода. Профессиональные составы с кератином, маслами и UV-фильтром. Без парабенов, без силиконов.</p>
+          <span class="pro-badge">💎 премиальная космецевтика</span>
+        </div>
+        <div class="cosmetic-preview">
+          🌸 линия<br> «Silk Gloss»
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок кейсов (Проблема → Решение → Результат) -->
+    <section>
+      <h2 class="section-title">Реальные кейсы</h2>
+      <p class="section-sub">Истории преображения с гарантией</p>
+      <div class="cases-grid">
+        <div class="case-card">
+          <div class="case-problem">🔻 Проблема: пушащиеся, секущиеся после мелирования</div>
+          <div class="case-arrow">⬇️</div>
+          <div>✨ Решение: кератин + ботокс комплекс</div>
+          <div class="case-result">✔️ Результат: гладкие, плотные волосы, здоровый блеск</div>
+        </div>
+        <div class="case-card">
+          <div class="case-problem">🔻 Проблема: сильная потеря после окрашивания</div>
+          <div class="case-arrow">⬇️</div>
+          <div>✨ Решение: нанопластика + восстановление линией PREMIUM</div>
+          <div class="case-result">✔️ Результат: восстановлена эластичность, нет ломкости</div>
+        </div>
+        <div class="case-card">
+          <div class="case-problem">🔻 Проблема: непослушные вьющиеся волосы</div>
+          <div class="case-arrow">⬇️</div>
+          <div>✨ Решение: кератиновое выпрямление без формальдегида</div>
+          <div class="case-result">✔️ Результат: идеально ровные, мягкие, гладкость 5+ мес</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- НОВЫЙ БЛОК: ОТЗЫВЫ (КАРУСЕЛЬ) -->
+    <section>
+      <h2 class="section-title">Отзывы в деталях</h2>
+      <p class="section-sub">Фото и впечатления клиентов</p>
+      <div class="reviews-carousel">
+        <div class="review-card">
+          <div class="review-header">
+            <span style="font-size: 2.8rem;">👩🏻</span>
+            <div><div class="review-name">Алина</div><div class="review-service">кератин</div></div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <p class="review-text">"Волосы как после салона, только лучше! Эффект уже 4 месяца, не вьются даже в дождь. Мастер учла мои пожелания."</p>
+          <div style="background: #362a3b; border-radius: 18px; padding: 10px; margin-top: 18px; font-size:0.9rem; text-align: center;">✨ фото "До/После" в Instagram ✨</div>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <span style="font-size: 2.8rem;">👱🏼‍♀️</span>
+            <div><div class="review-name">Екатерина</div><div class="review-service">ботокс</div></div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <p class="review-text">"После мелирования волосы были как мочалка. Ботокс + восстановление вернули жизнь. Теперь только сюда!"</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <span style="font-size: 2.8rem;">👩🏽</span>
+            <div><div class="review-name">Мария</div><div class="review-service">нанопластика</div></div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <p class="review-text">"Никакого запаха, волосы дышат. Очень довольна составом — видно, что премиум. Спасибо!"</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <span style="font-size: 2.8rem;">👩‍🦰</span>
+            <div><div class="review-name">Светлана</div><div class="review-service">восстановление</div></div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <p class="review-text">"После окрашивания волосы ожили, спасибо за профессиональный уход и линию косметики!"</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 10px; opacity: 0.7;">← листайте в стороны →</div>
+    </section>
+
+    <!-- Преимущества — сетка тегов (pill стиль) -->
+    <section>
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <div class="tags-wall">
+        <span class="premium-tag">#БезФормальдегида</span>
+        <span class="premium-tag">#БезЗапаха</span>
+        <span class="premium-tag">#ГладкостьДо6Месяцев</span>
+        <span class="premium-tag">#PremiumУход</span>
+        <span class="premium-tag">#СертифицированныеСоставы</span>
+        <span class="premium-tag">#КератинPREMIUM</span>
+        <span class="premium-tag">#БотоксPRO</span>
+      </div>
+    </section>
+
+    <!-- НОВЫЙ БЛОК: FAQ (АККОРДЕОН) -->
+    <section>
+      <h2 class="section-title">Частые вопросы</h2>
+      <div class="faq-block">
+        <details>
+          <summary>💬 Как долго держится эффект? <span style="color:#ff99cc;">▼</span></summary>
+          <div class="faq-answer">Кератин — до 6 месяцев, ботокс — до 4 месяцев при правильном домашнем уходе с использованием нашей линии.</div>
+        </details>
+        <details>
+          <summary>💬 Есть ли противопоказания? <span style="color:#ff99cc;">▼</span></summary>
+          <div class="faq-answer">Беременность, индивидуальная непереносимость компонентов (проводим тест на запястье). Составы мягкие, но консультация обязательна.</div>
+        </details>
+        <details>
+          <summary>💬 Можно ли мыть голову сразу после? <span style="color:#ff99cc;">▼</span></summary>
+          <div class="faq-answer">После процедуры важно выдержать 48-72 часа, чтобы кератин закрепился. Мы выдаем памятку по уходу.</div>
+        </details>
+        <details>
+          <summary>💬 Какой уход нужен после? <span style="color:#ff99cc;">▼</span></summary>
+          <div class="faq-answer">Рекомендуем шампуни без сульфатов и несмываемый уход из нашей линии для продления эффекта.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Финальный CTA с визуальным акцентом -->
+    <section>
+      <div class="final-cta">
+        <div class="cta-text">
+          <h3>Готовы к идеальной гладкости?</h3>
+          <p style="color: #dbbde2; font-size: 1.3rem; margin-top: 15px;">Запишитесь онлайн или приходите в студию</p>
+        </div>
+        <button class="cta-btn" onclick="alert('Запись через Telegram: @hairpremium_bot')">Записаться</button>
+      </div>
+    </section>
+
+    <!-- футер с подписью -->
+    <footer>
+      <p>© Hair Premium Studio | собственная линия косметики | 2026</p>
+      <p style="margin-top: 8px;">📍 Москва, ул. Преображенская 12 | @hairpremium_bot</p>
+    </footer>
+  </div>
+
+  <!-- ПЛАВАЮЩАЯ КНОПКА (STICKY BAR) -->
+  <div class="sticky-cta">
+    <div class="sticky-bar">
+      <span style="color: white; font-weight: 600
