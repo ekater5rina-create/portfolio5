@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -246,6 +245,7 @@
       font-weight: 600;
       letter-spacing: 0.5px;
       backdrop-filter: blur(10px);
+      text-decoration: none;
     }
 
     .cosmetic-preview {
@@ -522,6 +522,84 @@
       font-size: 1.1rem;
     }
 
+    /* Стили для карусели товаров */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      margin: 30px 0;
+    }
+    
+    .carousel-track {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px 5px 30px;
+      scrollbar-width: none;
+    }
+    
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .carousel-slide {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: linear-gradient(145deg, #2a1d2b, #1e1322);
+      border-radius: 30px;
+      padding: 25px;
+      border: 2px solid #ff66c4;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .carousel-slide:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 40px -10px #ff1493;
+      border-color: #ff99cc;
+    }
+    
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 102, 196, 0.3);
+      backdrop-filter: blur(8px);
+      border: 2px solid #ff66c4;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    
+    .carousel-button:hover {
+      background: #ff66c4;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 25px #ff66c4;
+    }
+    
+    .carousel-button.left {
+      left: 10px;
+    }
+    
+    .carousel-button.right {
+      right: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .carousel-button {
+        display: none;
+      }
+    }
+
     /* адаптив */
     @media (max-width: 800px) {
       .cases-grid {
@@ -572,9 +650,9 @@
       </h1>
       <p class="hero-utp">✨ Идеальная гладкость без формальдегида. Сертифицированные составы, собственная линия ухода.</p>
       <div class="btn-group">
-        <!-- ИСПРАВЛЕНО: рабочая ссылка на бота с параметром main -->
+        <!-- Ссылка на Telegram бот с параметром main -->
         <a href="https://t.me/NutriNVCH_bot?start=main" class="btn-primary" target="_blank">Записаться</a>
-        <!-- ИСПРАВЛЕНО: рабочая ссылка на бота -->
+        <!-- Ссылка на Telegram бот -->
         <a href="https://t.me/NutriNVCH_bot" class="btn-outline-pink" target="_blank" rel="noopener">Написать в Telegram →</a>
       </div>
       <!-- маленький гласс-элемент (статус) -->
@@ -592,7 +670,7 @@
           <h3>Кератиновое выпрямление</h3>
           <p>Восстанавливает структуру, зеркальный блеск до 6 месяцев. Без формальдегида.</p>
           <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
-            <!-- ИСПРАВЛЕНО: кнопка с параметром keratin -->
+            <!-- Ссылка на бота с параметром keratin -->
             <a href="https://t.me/NutriNVCH_bot?start=keratin" style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3; text-decoration: none; display: inline-block;">от 6 900 ₽ → запись</a>
           </div>
         </div>
@@ -601,7 +679,7 @@
           <h3>Ботокс для волос</h3>
           <p>Глубокое питание, плотность и эластичность. Эффект ламинирования.</p>
           <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
-            <!-- ИСПРАВЛЕНО: кнопка с параметром botox -->
+            <!-- Ссылка на бота с параметром botox -->
             <a href="https://t.me/NutriNVCH_bot?start=botox" style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3; text-decoration: none; display: inline-block;">от 5 500 ₽ → запись</a>
           </div>
         </div>
@@ -610,7 +688,7 @@
           <h3>Нанопластика</h3>
           <p>Щадящее выпрямление, филлеры для волос. Для тонких и ослабленных.</p>
           <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
-            <!-- ИСПРАВЛЕНО: кнопка с параметром nano -->
+            <!-- Ссылка на бота с параметром nano -->
             <a href="https://t.me/NutriNVCH_bot?start=nano" style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3; text-decoration: none; display: inline-block;">от 7 500 ₽ → запись</a>
           </div>
         </div>
@@ -619,14 +697,14 @@
           <h3>Восстановление после окрашивания</h3>
           <p>Спасение поврежденных прядей. Линия PREMIUM REPAIR.</p>
           <div style="margin-top: 20px; border-top: 1px dashed #ff66c460; padding-top: 15px;">
-            <!-- ИСПРАВЛЕНО: кнопка с параметром repair -->
+            <!-- Ссылка на бота с параметром repair -->
             <a href="https://t.me/NutriNVCH_bot?start=repair" style="background: #ff2d9540; border-radius: 60px; padding: 8px 20px; font-weight: 600; color: #ffb6e3; text-decoration: none; display: inline-block;">от 4 900 ₽ → запись</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- НОВЫЙ БЛОК: СЕРТИФИКАТЫ -->
+    <!-- БЛОК СЕРТИФИКАТЫ -->
     <section>
       <h2 class="section-title">Сертификаты и дипломы</h2>
       <p class="section-sub">Подтвержденное качество и безопасность процедур</p>
@@ -654,106 +732,74 @@
       </div>
     </section>
 
-    <!-- Блок "Собственная линия косметики" (выделенный блок с мягким градиентом) -->
+    <!-- БЛОК СОБСТВЕННОЙ КОСМЕТИКИ С КАРУСЕЛЬЮ И ССЫЛКАМИ НА WB И ТЕЛЕГРАМ -->
     <section>
-      <div class="cosmetic-block">
-        <div class="cosmetic-info">
-          <h2>HAIR PREMIUM <br>собственная линия</h2>
-          <p class="cosmetic-desc">Эксклюзивная серия для кератина, ботокса и домашнего ухода. Профессиональные составы с кератином, маслами и UV-фильтром. Без парабенов, без силиконов.</p>
-          <!-- ИСПРАВЛЕНО: ссылка на бота -->
-          <a href="https://t.me/NutriNVCH_bot?start=cosmetics" class="pro-badge" style="text-decoration: none; color: white;">💎 премиальная космецевтика</a>
+      <div class="cosmetic-block" style="flex-direction: column; padding: 50px 30px;">
+        <!-- Заголовок -->
+        <div style="text-align: center; width: 100%; margin-bottom: 30px;">
+          <h2 class="section-title" style="margin-bottom: 10px;">
+            HAIR PREMIUM линия
+          </h2>
+          <p class="section-sub" style="margin-bottom: 0;">
+            Профессиональная косметика для дома и салона
+          </p>
         </div>
-        <div class="cosmetic-preview">
-          🌸 линия<br> «Silk Gloss»
-        </div>
-      </div>
-    </section>
 
-    <!-- Блок кейсов (Проблема → Решение → Результат) -->
-    <section>
-      <h2 class="section-title">Реальные кейсы</h2>
-      <p class="section-sub">Истории преображения с гарантией</p>
-      <div class="cases-grid">
-        <div class="case-card">
-          <div class="case-problem">🔻 Проблема: пушащиеся, секущиеся после мелирования</div>
-          <div class="case-arrow">⬇️</div>
-          <div>✨ Решение: кератин + ботокс комплекс</div>
-          <div class="case-result">✔️ Результат: гладкие, плотные волосы, здоровый блеск</div>
-          <!-- ИСПРАВЛЕНО: ссылка на бота -->
-          <a href="https://t.me/NutriNVCH_bot?start=case1" style="display: inline-block; margin-top: 15px; color: #ff99cc; text-decoration: underline;">Хочу так же →</a>
-        </div>
-        <div class="case-card">
-          <div class="case-problem">🔻 Проблема: сильная потеря после окрашивания</div>
-          <div class="case-arrow">⬇️</div>
-          <div>✨ Решение: нанопластика + восстановление линией PREMIUM</div>
-          <div class="case-result">✔️ Результат: восстановлена эластичность, нет ломкости</div>
-          <!-- ИСПРАВЛЕНО: ссылка на бота -->
-          <a href="https://t.me/NutriNVCH_bot?start=case2" style="display: inline-block; margin-top: 15px; color: #ff99cc; text-decoration: underline;">Хочу так же →</a>
-        </div>
-        <div class="case-card">
-          <div class="case-problem">🔻 Проблема: непослушные вьющиеся волосы</div>
-          <div class="case-arrow">⬇️</div>
-          <div>✨ Решение: кератиновое выпрямление без формальдегида</div>
-          <div class="case-result">✔️ Результат: идеально ровные, мягкие, гладкость 5+ мес</div>
-          <!-- ИСПРАВЛЕНО: ссылка на бота -->
-          <a href="https://t.me/NutriNVCH_bot?start=case3" style="display: inline-block; margin-top: 15px; color: #ff99cc; text-decoration: underline;">Хочу так же →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- НОВЫЙ БЛОК: ОТЗЫВЫ (КАРУСЕЛЬ) -->
-    <section>
-      <h2 class="section-title">Отзывы в деталях</h2>
-      <p class="section-sub">Фото и впечатления клиентов</p>
-      <div class="reviews-carousel">
-        <div class="review-card">
-          <div class="review-header">
-            <span style="font-size: 2.8rem;">👩🏻</span>
-            <div><div class="review-name">Алина</div><div class="review-service">кератин</div></div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <p class="review-text">"Волосы как после салона, только лучше! Эффект уже 4 месяца, не вьются даже в дождь. Мастер учла мои пожелания."</p>
-          <div style="background: #362a3b; border-radius: 18px; padding: 10px; margin-top: 18px; font-size:0.9rem; text-align: center;">
-            <!-- ИСПРАВЛЕНО: ссылка на бота -->
-            ✨ <a href="https://t.me/NutriNVCH_bot?start=review_photo" style="color: #ffb6e3;">фото "До/После" в Instagram</a> ✨
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <span style="font-size: 2.8rem;">👱🏼‍♀️</span>
-            <div><div class="review-name">Екатерина</div><div class="review-service">ботокс</div></div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <p class="review-text">"После мелирования волосы были как мочалка. Ботокс + восстановление вернули жизнь. Теперь только сюда!"</p>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <span style="font-size: 2.8rem;">👩🏽</span>
-            <div><div class="review-name">Мария</div><div class="review-service">нанопластика</div></div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <p class="review-text">"Никакого запаха, волосы дышат. Очень довольна составом — видно, что премиум. Спасибо!"</p>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <span style="font-size: 2.8rem;">👩‍🦰</span>
-            <div><div class="review-name">Светлана</div><div class="review-service">восстановление</div></div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <p class="review-text">"После окрашивания волосы ожили, спасибо за профессиональный уход и линию косметики!"</p>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 10px; opacity: 0.7;">← листайте в стороны →</div>
-    </section>
-
-    <!-- Преимущества — сетка тегов (pill стиль) -->
-    <section>
-      <h2 class="section-title">Почему выбирают нас</h2>
-      <div class="tags-wall">
-        <span class="premium-tag">#БезФормальдегида</span>
-        <span class="premium-tag">#БезЗапаха</span>
-        <span class="premium-tag">#ГладкостьДо6Месяцев</span>
-        <span class="premium-tag">#PremiumУход</span>
-        <span class="premium-tag">#СертифицированныеСоставы</span>
-        <span class="premium-tag">#КератинPREMIUM</span>
-        <span class="
+        <!-- Карусель с кнопками -->
+        <div class="carousel-container">
+          <!-- Кнопки навигации -->
+          <button class="carousel-button left" onclick="document.querySelector('.carousel-track').scrollBy({ left: -325, behavior: 'smooth' })">←</button>
+          <button class="carousel-button right" onclick="document.querySelector('.carousel-track').scrollBy({ left: 325, behavior: 'smooth' })">→</button>
+          
+          <!-- Трек с карточками товаров -->
+          <div class="carousel-track">
+            <!-- Карточка 1 - ваш реальный товар с WB -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/400x400/ff66c4/ffffff?text=Шампунь+Silk+Gloss" 
+                   alt="Шампунь Silk Gloss" 
+                   style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px; margin-bottom: 15px; border: 2px solid #ff99cc;">
+              <h3 style="color: white; font-size: 1.4rem; margin-bottom: 5px;">Шампунь Silk Gloss</h3>
+              <p style="color: #c49ab6; margin-bottom: 10px;">Для гладкости и блеска, 250 мл</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <span style="color: gold; font-size: 1.2rem;">★★★★★</span>
+                <span style="color: white; font-weight: bold;">1 290 ₽</span>
+              </div>
+              <!-- РЕАЛЬНАЯ ССЫЛКА НА WB (ваш товар) -->
+              <a href="https://www.wildberries.ru/catalog/325767228/detail.aspx" 
+                 target="_blank"
+                 style="display: block; text-align: center; background: #cb11ab; color: white; padding: 12px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.2s;">
+                🛒 Купить на Wildberries
+              </a>
+            </div>
+            
+            <!-- Карточка 2 - можно заменить на другой ваш товар -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/400x400/ff99cc/ffffff?text=Маска+для+волос" 
+                   alt="Маска для волос" 
+                   style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px; margin-bottom: 15px; border: 2px solid #ff99cc;">
+              <h3 style="color: white; font-size: 1.4rem; margin-bottom: 5px;">Маска восстановление</h3>
+              <p style="color: #c49ab6; margin-bottom: 10px;">Интенсивный уход, 200 мл</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <span style="color: gold; font-size: 1.2rem;">★★★★★</span>
+                <span style="color: white; font-weight: bold;">1 590 ₽</span>
+              </div>
+              <!-- Здесь тоже можно вставить ссылку на другой товар -->
+              <a href="https://www.wildberries.ru/catalog/325767228/detail.aspx" 
+                 target="_blank"
+                 style="display: block; text-align: center; background: #cb11ab; color: white; padding: 12px; border-radius: 30px; text-decoration: none; font-weight: 600;">
+                🛒 Купить на WB
+              </a>
+            </div>
+            
+            <!-- Карточка 3 -->
+            <div class="carousel-slide">
+              <img src="https://via.placeholder.com/400x400/ffb3d9/ffffff?text=Сыворотка" 
+                   alt="Сыворотка для волос" 
+                   style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px; margin-bottom: 15px; border: 2px solid #ff99cc;">
+              <h3 style="color: white; font-size: 1.4rem; margin-bottom: 5px;">Сыворотка-флюид</h3>
+              <p style="color: #c49ab6; margin-bottom: 10px;">Термозащита, 100 мл</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <span style="color: gold; font-size: 1.2rem;">★★★★☆</span>
+                <span style="color: white; font-weight: bold;">1 190 ₽</span>
+              </div>
+              <a href="https://www.wildberries.ru/catalog
